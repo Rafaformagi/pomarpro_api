@@ -15,8 +15,12 @@ app.use(cors({origin:['http://localhost:4200', 'http://127.0.0.1:4200']}))
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario.route');
-
-
+var materialsRouter = require('./routes/material.route');
+var produtoRouter = require('./routes/produto.route');
+var cadastroRouter = require('./routes/cadastro.route');
+var movimentoRouter = require('./routes/movimento.route');
+var colheitaRouter = require('./routes/colheita.route');
+var homeRouter = require('./routes/home.route');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/usuario', usersRouter);
+app.use('/material', materialsRouter);
+app.use('/produto', produtoRouter);
+app.use('/cadastro', cadastroRouter);
+app.use('/movimento', movimentoRouter);
+app.use('/colheita', colheitaRouter);
+app.use('/home',homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
